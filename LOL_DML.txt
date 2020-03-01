@@ -1,0 +1,41 @@
+-- These are some Database Manipulation queries for a partially implemented Project Website 
+-- using the LOL database.
+
+-- Get all details of all champions for Champion page
+	SELECT Champ_id, Name, Role, Species, Lane FROM Champions
+-- Get all details of all Spells for Spells page 
+	SELECT Spell_id, Q, W, E, R, L FROM Spells
+-- Get all details of all Items for Items page
+	SELECT 
+-- Get all details of all Levels for Level page
+
+
+
+
+
+
+
+
+
+-- Update a champion based on submission of update champ form for Champion page
+	UPDATE Champions SET Champ_id=:Champ_idInput, Name=:NameInput, Role=:RoleInput, Species=:SpeciesInput, Lane=:LaneInput
+	WHERE Champ_id=
+-- Update a spell based on submission of update spell form for Spells page
+	UPDATE Spells SET Champ_id=:Champ_idInput, Spell_id=:Spell_idInput, Q=:QInput, W=:WInput, E=:EInput, R=:RInput
+	WHERE
+-- Update an item based on submission of update item form for Items page
+	UPDATE Items SET Champ_id=:Champ_idInput, Item_id=:Item_idInput, Defense=:DefenseInput, Attack=:AttackInput, Magic=:MagicInput, Movement=:MovementInput
+	WHERE
+-- Update a level based on submission of update level form for Level page
+	UPDATE Levels SET Champ_id=:Champ_idInput, Level_id=:Level_idInput, Spell_upgrade=:Spell_upgradeInput, Health_upgrade=:Health_upgradeInput, Damage_upgrade=:Damage_upgradeInput
+	WHERE
+
+
+-- Search a champion based on the champion's name in Champion Page
+	SELECT Champ_id, Name, Role, Species, Lane FROM Champions WHERE Name=:NameInput
+-- Search a Spell based on the Spell's name in Spells Page
+	SELECT Spell_id, Q, W, E, R FROM Spells WHERE Q=:SpellInput OR W=:SpellInput OR E=:SpellInput OR R=:SpellInput
+-- Search a Item based on the Item's name in Items page
+	SELECT Item_name, Defense, Attack, Magic, Movement FROM Items WHERE Item_name=:ItemInput
+-- Search a Level based on the Level's id in Level page
+	SELECT Level_id, Spell_upgrade, Health_upgrade, Damage_upgrade FROM Levels WHERE Level_id=:LevelInput
