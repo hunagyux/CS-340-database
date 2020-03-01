@@ -140,4 +140,24 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
+-- Table structure for table `Champ_items`
+
+DROP TABLE IF EXISTS `ChampItems`;
+CREATE TABLE `ChampItems`(
+      `Item_name` varchar(255) NOT NULL,
+      `Item_id` int NOT NULL,
+      `Champ_id` int NOT NULL,
+      `Champ_name` varchar(255) NOT NULL,
+      `id` INT NOT NULL AUTO_INCREMENT,
+      PRIMARY KEY (`id`),
+      CONSTRAINT fk_champ_items_items_id FOREIGN KEY(`Item_id`) REFERENCES `Items`(`Item_id`),
+      CONSTRAINT fk_champ_items_champ_id FOREIGN KEY(`Champ_id`) REFERENCES `Champions`(`Champ_id`)
+      ) ENGINE=InnoDB AUTO_INCREMENT=69 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Dumping data for table `ChampItems`
+
+LOCK TABLES `ChampItems` WRITE;
+INSERT INTO `ChampItems` VALUES ('Boots', 4, 1, 'Aatrox', 0);
+UNLOCK TABLES;
+
 -- Dump completed on 2020-02-18 20:36:01
