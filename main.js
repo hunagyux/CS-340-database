@@ -8,9 +8,7 @@ var mysql = require('./dbcon.js');
 var bodyParser = require('body-parser');
 
 var app = express();
-var handlebars = require('express-handlebars').create({
-        defaultLayout:'main',
-        });
+var handlebars = require('express-handlebars').create({defaultLayout:'main'});
 
 app.engine('handlebars', handlebars.engine);
 app.use(bodyParser.urlencoded({extended:true}));
@@ -20,10 +18,14 @@ app.set('port', process.argv[2]);
 app.set('mysql', mysql);
 
 //for our own files
-app.use('/people_certs', require('./people_certs.js'));
-app.use('/people', require('./people.js'));
-app.use('/planets', require('./planets.js'));
-app.use('/', express.static('public'));
+app.use('/items', require('./items.js'));
+app.use('/level', require('./level.js'));
+app.use('/spells', require('./spells.js'));
+app.use('/champions', require('./champions.js'));
+
+app.use(function(req,res){
+res.render("index",{"title":"test","layout":"main"});
+});
 
 app.use(function(req,res){
   res.status(404);
