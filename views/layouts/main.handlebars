@@ -1,13 +1,31 @@
 <!doctype html>
 <html>
 <head>
-	<title>Demo Page</title>
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-    {{#each jsscripts}}
+	<title>Library System</title>
+	<link rel="stylesheet" type="text/css" href="/static/CSS/style.css">
+	{{#each jsscripts}}
     <script src="/static/{{this}}"></script>
     {{/each}}
 </head>
 <body>
+	
+<div class="menu">
+     <h1><font color="#CC0000">T</font><font color="#DA0E0E">h</font><font color="#E81C1C">e</font> <font color="#F62A2A">L</font><font color="#FF3838">i</font><font color="#FF462A">b</font><font color="#FF5538">r</font><font color="#FF632A">a</font><font color="#FF7138">r</font><font color="#FF7F2A">y</font> <font color="#FF8D38">S</font><font color="#FF9B2A">y</font><font color="#FF8D38">s</font><font color="#FF9B2A">t</font><font color="#FF8D38">e</font><font color="#FF9B2A">m</font></h1>
+    <ul>
+        <li><a href="/book" data-hover="book">Books</a></li>
+        <li><a href="/users" data-hover="users">Users</a></li>
+        <li><a href="/genres" data-hover="genres">Genres</a></li>
+        <li><a href="/rental" data-hover="rental">Rental</a></li>
+    </ul>
+</div>
+
+
+
+
+
+
+<div class="bot"></div>
+<script src="/static/js/library.js"></script>
 	{{{body}}}
 </body>
 </html>

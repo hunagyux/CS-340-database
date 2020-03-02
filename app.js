@@ -1,8 +1,3 @@
-/*
-    Uses express, dbcon for database connection, body parser to parse form data
-    handlebars for HTML templates
-*/
-
 var express = require('express');
 var mysql = require('./dbcon.js');
 var bodyParser = require('body-parser');
@@ -14,30 +9,30 @@ app.engine('handlebars', handlebars.engine);
 app.use(bodyParser.urlencoded({extended:true}));
 app.use('/static', express.static('public'));
 app.set('view engine', 'handlebars');
-app.set('port', process.argv[2]);
+app.set('port', 3028);
 app.set('mysql', mysql);
 
-//for our own files
-app.use('/items', require('./items.js'));
-app.use('/level', require('./level.js'));
-app.use('/spells', require('./spells.js'));
-app.use('/champions', require('./champions.js'));
+app.use('/book',require('./book.js'));
+app.use('/users',require('./users.js'));
+app.use('/genres',require('./genres.js'));
+app.use('/rental',require('./rental.js'));
 
 app.use(function(req,res){
 res.render("index",{"title":"test","layout":"main"});
 });
 
 app.use(function(req,res){
-  res.status(404);
-  res.render('404');
+res.status(404);
+res.render('404');
 });
 
 app.use(function(err, req, res, next){
-  console.error(err.stack);
-  res.status(500);
-  res.render('500');
+console.error(err.stack);
+res.type('plain/text');
+res.status(500);
+res.render('500');
 });
 
 app.listen(app.get('port'), function(){
-   console.log('Express started on http://flip3.engr.oregonstate.edu:' + app.get('port') + '; press Ctrl-C to terminate.');
+console.log('Express started on http://flip3.engr.oregonstate.edu:' + app.get('port') + '; press Ctrl-C to terminate.');
 });
